@@ -42,10 +42,10 @@ Aturan: kerjakan **satu fase per sesi**, centang `[x]` kalau sudah selesai, lalu
 **Selesai kalau:** tugas baru muncul di daftar dan di Table Editor Supabase.
 
 ## Fase 4: Ubah status, edit, hapus (Update & Delete)
-- [ ] 4.1 Tombol/dropdown ubah status (todo, in_progress, done)
-- [ ] 4.2 Fitur edit tugas (judul, deskripsi, prioritas, tenggat)
-- [ ] 4.3 Tombol hapus dengan konfirmasi
-- [ ] 4.4 Tugas berstatus `done` diberi tampilan berbeda (coret/pudar)
+- [x] 4.1 Tombol/dropdown ubah status (todo, in_progress, done)
+- [x] 4.2 Fitur edit tugas (judul, deskripsi, prioritas, tenggat)
+- [x] 4.3 Tombol hapus dengan konfirmasi
+- [x] 4.4 Tugas berstatus `done` diberi tampilan berbeda (coret/pudar)
 
 **Selesai kalau:** perubahan tersimpan dan tetap ada setelah halaman di-refresh.
 

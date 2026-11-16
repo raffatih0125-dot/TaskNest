@@ -18,6 +18,7 @@ function TaskList() {
   const [tasks, setTasks] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
+  const [actionError, setActionError] = useState('')
 
   async function loadTasks() {
     try {
@@ -70,9 +71,67 @@ function TaskList() {
     await loadTasks()
   }
 
+  async function handleUpdateTask(id, updates) {
+    const { error: updateError } = await supabase
+      .from('tasks')
+      .update(updates)
+      .eq('id', id)
+
+    if (updateError) throw new Error(updateError.message)
+
+    await loadTasks()
+  }
+
+  async function handleStatusChange(id, status) {
+    setActionError('')
+
+    try {
+      const { error: updateError } = await supabase
+        .from('tasks')
+        .update({ status })
+        .eq('id', id)
+
+      if (updateError) throw new Error(updateError.message)
+
+      await loadTasks()
+    } catch (updateError) {
+      setActionError(
+        `Gagal mengubah status: ${
+          updateError instanceof Error
+            ? updateError.message
+            : 'Terjadi kesalahan yang tidak diketahui.'
+        }`,
+      )
+    }
+  }
+
+  async function handleDeleteTask(id) {
+    setActionError('')
+
+    try {
+      const { error: deleteError } = await supabase
+        .from('tasks')
+        .delete()
+        .eq('id', id)
+
+      if (deleteError) throw new Error(deleteError.message)
+
+      await loadTasks()
+    } catch (deleteError) {
+      setActionError(
+        `Gagal menghapus tugas: ${
+          deleteError instanceof Error
+            ? deleteError.message
+            : 'Terjadi kesalahan yang tidak diketahui.'
+        }`,
+      )
+    }
+  }
+
   return (
     <>
       <TaskForm onSubmit={handleCreateTask} />
+      {actionError && <p role="alert">{actionError}</p>}
       {isLoading ? (
         <p role="status">Memuat tugas...</p>
       ) : error ? (
@@ -85,7 +144,12 @@ function TaskList() {
           <ul>
             {tasks.map((task) => (
               <li key={task.id}>
-                <TaskItem task={task} />
+                <TaskItem
+                  task={task}
+                  onStatusChange={handleStatusChange}
+                  onUpdate={handleUpdateTask}
+                  onDelete={handleDeleteTask}
+                />
               </li>
             ))}
           </ul>

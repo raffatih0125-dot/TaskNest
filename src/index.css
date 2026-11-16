@@ -10,3 +10,11 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+.task-item--done {
+  opacity: 0.6;
+}
+
+.task-item--done h2 {
+  text-decoration: line-through;
+}

@@ -1,10 +1,11 @@
 import { useState } from 'react'
 
-function TaskForm({ onSubmit }) {
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [priority, setPriority] = useState('medium')
-  const [dueDate, setDueDate] = useState('')
+function TaskForm({ task, onSubmit, onCancel }) {
+  const isEditing = Boolean(task)
+  const [title, setTitle] = useState(task?.title ?? '')
+  const [description, setDescription] = useState(task?.description ?? '')
+  const [priority, setPriority] = useState(task?.priority ?? 'medium')
+  const [dueDate, setDueDate] = useState(task?.due_date ?? '')
   const [error, setError] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -27,15 +28,19 @@ function TaskForm({ onSubmit }) {
         priority,
         due_date: dueDate || null,
       })
-      setTitle('')
-      setDescription('')
-      setPriority('medium')
-      setDueDate('')
+      if (isEditing) {
+        onCancel()
+      } else {
+        setTitle('')
+        setDescription('')
+        setPriority('medium')
+        setDueDate('')
+      }
     } catch (submitError) {
       setError(
         submitError instanceof Error
-          ? `Gagal menambahkan tugas: ${submitError.message}`
-          : 'Gagal menambahkan tugas. Silakan coba lagi.',
+          ? `Gagal ${isEditing ? 'memperbarui' : 'menambahkan'} tugas: ${submitError.message}`
+          : `Gagal ${isEditing ? 'memperbarui' : 'menambahkan'} tugas. Silakan coba lagi.`,
       )
     } finally {
       setIsSubmitting(false)
@@ -43,29 +48,39 @@ function TaskForm({ onSubmit }) {
   }
 
   return (
-    <section aria-labelledby="add-task-heading">
-      <h2 id="add-task-heading">Tambah tugas</h2>
+    <section aria-labelledby={isEditing ? 'edit-task-heading' : 'add-task-heading'}>
+      <h2 id={isEditing ? 'edit-task-heading' : 'add-task-heading'}>
+        {isEditing ? 'Ubah tugas' : 'Tambah tugas'}
+      </h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="task-title">Judul</label>
+        <label htmlFor={isEditing ? `task-title-${task.id}` : 'task-title'}>
+          Judul
+        </label>
         <input
-          id="task-title"
+          id={isEditing ? `task-title-${task.id}` : 'task-title'}
           name="title"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
           aria-required="true"
         />
 
-        <label htmlFor="task-description">Deskripsi</label>
+        <label
+          htmlFor={isEditing ? `task-description-${task.id}` : 'task-description'}
+        >
+          Deskripsi
+        </label>
         <textarea
-          id="task-description"
+          id={isEditing ? `task-description-${task.id}` : 'task-description'}
           name="description"
           value={description}
           onChange={(event) => setDescription(event.target.value)}
         />
 
-        <label htmlFor="task-priority">Prioritas</label>
+        <label htmlFor={isEditing ? `task-priority-${task.id}` : 'task-priority'}>
+          Prioritas
+        </label>
         <select
-          id="task-priority"
+          id={isEditing ? `task-priority-${task.id}` : 'task-priority'}
           name="priority"
           value={priority}
           onChange={(event) => setPriority(event.target.value)}
@@ -75,9 +90,11 @@ function TaskForm({ onSubmit }) {
           <option value="high">Tinggi</option>
         </select>
 
-        <label htmlFor="task-due-date">Tenggat</label>
+        <label htmlFor={isEditing ? `task-due-date-${task.id}` : 'task-due-date'}>
+          Tenggat
+        </label>
         <input
-          id="task-due-date"
+          id={isEditing ? `task-due-date-${task.id}` : 'task-due-date'}
           name="due_date"
           type="date"
           value={dueDate}
@@ -86,8 +103,17 @@ function TaskForm({ onSubmit }) {
 
         {error && <p role="alert">{error}</p>}
         <button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'Menyimpan...' : 'Tambah tugas'}
+          {isSubmitting
+            ? 'Menyimpan...'
+            : isEditing
+              ? 'Simpan perubahan'
+              : 'Tambah tugas'}
         </button>
+        {isEditing && (
+          <button type="button" onClick={onCancel} disabled={isSubmitting}>
+            Batal
+          </button>
+        )}
       </form>
     </section>
   )

@@ -19,3 +19,9 @@
 - Masalah: lint memperingatkan pembaruan state di effect; pola muat awal dipisahkan dan lint kembali bersih.
 - Verifikasi: build dan lint berhasil; validasi judul kosong menampilkan pesan di browser tanpa membuat data uji.
 - Langkah berikutnya: Fase 4 (ubah status, edit, hapus).
+
+## Sesi 5 - 16/11/2026
+- Dikerjakan: ubah status dan edit melalui Supabase, hapus dengan konfirmasi, serta gaya pudar/coret untuk tugas selesai.
+- Masalah: simulasi API di browser macet saat PATCH; halaman dimuat ulang dan data asli tetap utuh.
+- Verifikasi: build dan lint berhasil; form edit dapat dibuka/dibatalkan dan konfirmasi hapus dapat ditolak.
+- Langkah berikutnya: Fase 5 (filter dan tampilan).
