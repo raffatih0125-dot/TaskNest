@@ -25,3 +25,9 @@
 - Masalah: simulasi API di browser macet saat PATCH; halaman dimuat ulang dan data asli tetap utuh.
 - Verifikasi: build dan lint berhasil; form edit dapat dibuka/dibatalkan dan konfirmasi hapus dapat ditolak.
 - Langkah berikutnya: Fase 5 (filter dan tampilan).
+
+## Sesi 6 - 16/11/2026
+- Dikerjakan: filter status, badge prioritas, penanda tenggat lewat, kartu responsif, dan header TaskNest.
+- Masalah: build awal menemukan kurung kurawal CSS berlebih; diperbaiki sebelum verifikasi akhir.
+- Verifikasi: build dan lint berhasil; filter, tampilan mobile, penanda overdue, dan gaya tugas selesai diuji di browser.
+- Langkah berikutnya: Fase 6 (finalisasi).

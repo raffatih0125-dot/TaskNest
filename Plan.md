@@ -50,11 +50,11 @@ Aturan: kerjakan **satu fase per sesi**, centang `[x]` kalau sudah selesai, lalu
 **Selesai kalau:** perubahan tersimpan dan tetap ada setelah halaman di-refresh.
 
 ## Fase 5: Filter dan tampilan
-- [ ] 5.1 Filter berdasarkan status (Semua, Todo, Dikerjakan, Selesai)
-- [ ] 5.2 Badge warna untuk prioritas (low, medium, high)
-- [ ] 5.3 Tandai tugas yang lewat tenggat
-- [ ] 5.4 Rapikan layout agar responsif (HP dan laptop)
-- [ ] 5.5 Beri header dengan nama dan logo teks TaskNest
+- [x] 5.1 Filter berdasarkan status (Semua, Todo, Dikerjakan, Selesai)
+- [x] 5.2 Badge warna untuk prioritas (low, medium, high)
+- [x] 5.3 Tandai tugas yang lewat tenggat
+- [x] 5.4 Rapikan layout agar responsif (HP dan laptop)
+- [x] 5.5 Beri header dengan nama dan logo teks TaskNest
 
 **Selesai kalau:** tampilan rapi di layar kecil maupun besar.
 

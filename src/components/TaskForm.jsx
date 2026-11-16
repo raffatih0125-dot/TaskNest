@@ -47,73 +47,81 @@ function TaskForm({ task, onSubmit, onCancel }) {
     }
   }
 
+  function getFieldId(field) {
+    return `task-${field}${isEditing ? `-${task.id}` : ''}`
+  }
+
   return (
-    <section aria-labelledby={isEditing ? 'edit-task-heading' : 'add-task-heading'}>
+    <section className="task-form" aria-labelledby={isEditing ? 'edit-task-heading' : 'add-task-heading'}>
       <h2 id={isEditing ? 'edit-task-heading' : 'add-task-heading'}>
         {isEditing ? 'Ubah tugas' : 'Tambah tugas'}
       </h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor={isEditing ? `task-title-${task.id}` : 'task-title'}>
-          Judul
-        </label>
-        <input
-          id={isEditing ? `task-title-${task.id}` : 'task-title'}
-          name="title"
-          value={title}
-          onChange={(event) => setTitle(event.target.value)}
-          aria-required="true"
-        />
+        <div className="form-field form-field--wide">
+          <label htmlFor={getFieldId('title')}>Judul</label>
+          <input
+            id={getFieldId('title')}
+            name="title"
+            value={title}
+            onChange={(event) => setTitle(event.target.value)}
+            aria-required="true"
+          />
+        </div>
 
-        <label
-          htmlFor={isEditing ? `task-description-${task.id}` : 'task-description'}
-        >
-          Deskripsi
-        </label>
-        <textarea
-          id={isEditing ? `task-description-${task.id}` : 'task-description'}
-          name="description"
-          value={description}
-          onChange={(event) => setDescription(event.target.value)}
-        />
+        <div className="form-field form-field--wide">
+          <label htmlFor={getFieldId('description')}>Deskripsi</label>
+          <textarea
+            id={getFieldId('description')}
+            name="description"
+            value={description}
+            onChange={(event) => setDescription(event.target.value)}
+          />
+        </div>
 
-        <label htmlFor={isEditing ? `task-priority-${task.id}` : 'task-priority'}>
-          Prioritas
-        </label>
-        <select
-          id={isEditing ? `task-priority-${task.id}` : 'task-priority'}
-          name="priority"
-          value={priority}
-          onChange={(event) => setPriority(event.target.value)}
-        >
-          <option value="low">Rendah</option>
-          <option value="medium">Sedang</option>
-          <option value="high">Tinggi</option>
-        </select>
+        <div className="form-field">
+          <label htmlFor={getFieldId('priority')}>Prioritas</label>
+          <select
+            id={getFieldId('priority')}
+            name="priority"
+            value={priority}
+            onChange={(event) => setPriority(event.target.value)}
+          >
+            <option value="low">Rendah</option>
+            <option value="medium">Sedang</option>
+            <option value="high">Tinggi</option>
+          </select>
+        </div>
 
-        <label htmlFor={isEditing ? `task-due-date-${task.id}` : 'task-due-date'}>
-          Tenggat
-        </label>
-        <input
-          id={isEditing ? `task-due-date-${task.id}` : 'task-due-date'}
-          name="due_date"
-          type="date"
-          value={dueDate}
-          onChange={(event) => setDueDate(event.target.value)}
-        />
+        <div className="form-field">
+          <label htmlFor={getFieldId('due-date')}>Tenggat</label>
+          <input
+            id={getFieldId('due-date')}
+            name="due_date"
+            type="date"
+            value={dueDate}
+            onChange={(event) => setDueDate(event.target.value)}
+          />
+        </div>
 
-        {error && <p role="alert">{error}</p>}
-        <button type="submit" disabled={isSubmitting}>
-          {isSubmitting
-            ? 'Menyimpan...'
-            : isEditing
-              ? 'Simpan perubahan'
-              : 'Tambah tugas'}
-        </button>
+        {error && (
+          <p className="form-error" role="alert">
+            {error}
+          </p>
+        )}
+        <div className="form-actions">
+          <button type="submit" disabled={isSubmitting}>
+            {isSubmitting
+              ? 'Menyimpan...'
+              : isEditing
+                ? 'Simpan perubahan'
+                : 'Tambah tugas'}
+          </button>
         {isEditing && (
           <button type="button" onClick={onCancel} disabled={isSubmitting}>
             Batal
           </button>
         )}
+        </div>
       </form>
     </section>
   )

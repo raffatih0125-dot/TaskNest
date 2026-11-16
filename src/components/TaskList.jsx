@@ -19,6 +19,12 @@ function TaskList() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
   const [actionError, setActionError] = useState('')
+  const [statusFilter, setStatusFilter] = useState('all')
+
+  const filteredTasks =
+    statusFilter === 'all'
+      ? tasks
+      : tasks.filter((task) => task.status === statusFilter)
 
   async function loadTasks() {
     try {
@@ -131,18 +137,40 @@ function TaskList() {
   return (
     <>
       <TaskForm onSubmit={handleCreateTask} />
-      {actionError && <p role="alert">{actionError}</p>}
+      {actionError && (
+        <p className="action-error" role="alert">
+          {actionError}
+        </p>
+      )}
       {isLoading ? (
         <p role="status">Memuat tugas...</p>
       ) : error ? (
         <p role="alert">Gagal memuat tugas: {error}</p>
       ) : tasks.length === 0 ? (
-        <p>Belum ada tugas</p>
+        <p className="empty-state">Belum ada tugas</p>
       ) : (
         <section aria-labelledby="task-list-heading">
-          <h1 id="task-list-heading">Daftar Tugas</h1>
-          <ul>
-            {tasks.map((task) => (
+          <div className="task-list__header">
+            <h2 id="task-list-heading">Daftar tugas</h2>
+            <div className="status-filter">
+              <label htmlFor="status-filter">Filter status</label>
+              <select
+                id="status-filter"
+                value={statusFilter}
+                onChange={(event) => setStatusFilter(event.target.value)}
+              >
+                <option value="all">Semua</option>
+                <option value="todo">Todo</option>
+                <option value="in_progress">Dikerjakan</option>
+                <option value="done">Selesai</option>
+              </select>
+            </div>
+          </div>
+          {filteredTasks.length === 0 ? (
+            <p className="empty-state">Tidak ada tugas untuk status ini.</p>
+          ) : (
+            <ul className="task-list">
+              {filteredTasks.map((task) => (
               <li key={task.id}>
                 <TaskItem
                   task={task}
@@ -151,8 +179,9 @@ function TaskList() {
                   onDelete={handleDeleteTask}
                 />
               </li>
-            ))}
-          </ul>
+              ))}
+            </ul>
+          )}
         </section>
       )}
     </>
