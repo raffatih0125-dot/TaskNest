@@ -14,12 +14,12 @@ Aturan: kerjakan **satu fase per sesi**, centang `[x]` kalau sudah selesai, lalu
 **Selesai kalau:** tabel `tasks` berisi 3 data awal dan 4 file panduan sudah ada.
 
 ## Fase 1: Setup project React
-- [ ] 1.1 Buat project Vite + React di root folder
-- [ ] 1.2 Install `@supabase/supabase-js`
-- [ ] 1.3 Buat file `.env` (VITE_SUPABASE_URL dan VITE_SUPABASE_ANON_KEY)
-- [ ] 1.4 Pastikan `.env` ada di `.gitignore`
-- [ ] 1.5 Buat `src/supabaseClient.js`
-- [ ] 1.6 Bersihkan template bawaan Vite (logo, counter, CSS lama)
+- [x] 1.1 Buat project Vite + React di root folder
+- [x] 1.2 Install `@supabase/supabase-js`
+- [x] 1.3 Buat file `.env` (VITE_SUPABASE_URL dan VITE_SUPABASE_ANON_KEY)
+- [x] 1.4 Pastikan `.env` ada di `.gitignore`
+- [x] 1.5 Buat `src/supabaseClient.js`
+- [x] 1.6 Bersihkan template bawaan Vite (logo, counter, CSS lama)
 
 **Selesai kalau:** `npm run dev` jalan tanpa error dan halaman kosong tampil.
 
