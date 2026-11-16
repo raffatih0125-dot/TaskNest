@@ -31,3 +31,9 @@
 - Masalah: build awal menemukan kurung kurawal CSS berlebih; diperbaiki sebelum verifikasi akhir.
 - Verifikasi: build dan lint berhasil; filter, tampilan mobile, penanda overdue, dan gaya tugas selesai diuji di browser.
 - Langkah berikutnya: Fase 6 (finalisasi).
+
+## Sesi 7 - 16/11/2026
+- Dikerjakan: README berbahasa Indonesia, panduan instalasi, konfigurasi variabel Supabase tanpa nilai asli, cara menjalankan, dan struktur folder.
+- Masalah: tidak ada bug aplikasi tersisa; `.env` diabaikan Git dan tidak tercatat di index. Commit/push final belum dilakukan karena perintahnya ditolak.
+- Verifikasi: build dan lint berhasil; alur tambah, edit, ubah status, filter, tenggat lewat, hapus, serta validasi form diuji di browser.
+- Langkah berikutnya: commit dan push final, lalu ambil screenshot manual sesuai langkah 6.7.

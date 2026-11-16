@@ -59,11 +59,11 @@ Aturan: kerjakan **satu fase per sesi**, centang `[x]` kalau sudah selesai, lalu
 **Selesai kalau:** tampilan rapi di layar kecil maupun besar.
 
 ## Fase 6: Finalisasi
-- [ ] 6.1 Tes semua fitur dari awal sampai akhir
-- [ ] 6.2 Perbaiki bug yang ditemukan
-- [ ] 6.3 Tulis `README.md` (deskripsi, cara install, cara isi .env, cara jalan)
-- [ ] 6.4 Pastikan `.env` tidak ikut ter-commit
-- [ ] 6.5 Update `history.md` untuk terakhir kali
+- [x] 6.1 Tes semua fitur dari awal sampai akhir
+- [x] 6.2 Perbaiki bug yang ditemukan
+- [x] 6.3 Tulis `README.md` (deskripsi, cara install, cara isi .env, cara jalan)
+- [x] 6.4 Pastikan `.env` tidak ikut ter-commit
+- [x] 6.5 Update `history.md` untuk terakhir kali
 - [ ] 6.6 Commit dan push final
 - [ ] 6.7 Ambil screenshot: tabel Supabase, aplikasi berjalan, riwayat commit GitHub
 
