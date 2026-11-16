@@ -1,5 +1,11 @@
+import TaskList from './components/TaskList.jsx'
+
 function App() {
-  return null
+  return (
+    <main>
+      <TaskList />
+    </main>
+  )
 }
 
 export default App

@@ -24,11 +24,11 @@ Aturan: kerjakan **satu fase per sesi**, centang `[x]` kalau sudah selesai, lalu
 **Selesai kalau:** `npm run dev` jalan tanpa error dan halaman kosong tampil.
 
 ## Fase 2: Menampilkan daftar tugas (Read)
-- [ ] 2.1 Buat komponen `TaskList` dan `TaskItem`
-- [ ] 2.2 Ambil data dari tabel `tasks` (urut dari terbaru)
-- [ ] 2.3 Tampilkan judul, deskripsi, status, prioritas, tenggat
-- [ ] 2.4 Tambah tampilan loading dan pesan error
-- [ ] 2.5 Tampilkan pesan "Belum ada tugas" kalau data kosong
+- [x] 2.1 Buat komponen `TaskList` dan `TaskItem`
+- [x] 2.2 Ambil data dari tabel `tasks` (urut dari terbaru)
+- [x] 2.3 Tampilkan judul, deskripsi, status, prioritas, tenggat
+- [x] 2.4 Tambah tampilan loading dan pesan error
+- [x] 2.5 Tampilkan pesan "Belum ada tugas" kalau data kosong
 
 **Selesai kalau:** 3 data awal dari Supabase tampil di browser.
 
