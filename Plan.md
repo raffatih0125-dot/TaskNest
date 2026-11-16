@@ -33,11 +33,11 @@ Aturan: kerjakan **satu fase per sesi**, centang `[x]` kalau sudah selesai, lalu
 **Selesai kalau:** 3 data awal dari Supabase tampil di browser.
 
 ## Fase 3: Tambah tugas (Create)
-- [ ] 3.1 Buat komponen `TaskForm` (judul, deskripsi, prioritas, tenggat)
-- [ ] 3.2 Validasi: judul wajib diisi
-- [ ] 3.3 Simpan ke Supabase dengan insert
-- [ ] 3.4 Daftar otomatis diperbarui setelah tugas ditambah
-- [ ] 3.5 Kosongkan form setelah berhasil
+- [x] 3.1 Buat komponen `TaskForm` (judul, deskripsi, prioritas, tenggat)
+- [x] 3.2 Validasi: judul wajib diisi
+- [x] 3.3 Simpan ke Supabase dengan insert
+- [x] 3.4 Daftar otomatis diperbarui setelah tugas ditambah
+- [x] 3.5 Kosongkan form setelah berhasil
 
 **Selesai kalau:** tugas baru muncul di daftar dan di Table Editor Supabase.
 

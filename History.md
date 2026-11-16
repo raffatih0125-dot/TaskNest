@@ -13,3 +13,9 @@
 - Ditambahkan tampilan loading, error, serta pesan "Belum ada tugas"; URL Supabase dinormalisasi di klien agar query berhasil.
 - Verifikasi: build dan lint berhasil; browser menampilkan 3 tugas dari Supabase.
 - Langkah berikutnya: Fase 3 (tambah tugas).
+
+## Sesi 4 - 16/11/2026
+- Dikerjakan: `TaskForm` dengan validasi judul, insert Supabase, pemuatan ulang daftar, dan reset form setelah berhasil.
+- Masalah: lint memperingatkan pembaruan state di effect; pola muat awal dipisahkan dan lint kembali bersih.
+- Verifikasi: build dan lint berhasil; validasi judul kosong menampilkan pesan di browser tanpa membuat data uji.
+- Langkah berikutnya: Fase 4 (ubah status, edit, hapus).
